@@ -14,7 +14,7 @@ const regularHumanAbilityRanks = {'feeble': [1, 5], 'poor': [6, 25], 'typical': 
 const hiTechAbilityRanks = {'feeble': [1, 5], 'poor': [6, 10], 'typical': [11, 40], 'good': [41, 80], 'excellent': [81, 95],
 'remarkable': [96, 100]};
 const robotAbilityRanks = {'feeble': [1, 5], 'poor': [6, 10], 'typical': [11, 15], 'good': [16, 40], 'excellent': [41, 60],
-'remarkable': [51, 70], 'incredible': [71, 90], 'amazing': [91, 98], 'monstrous': [99, 100]};
+'remarkable': [61, 70], 'incredible': [71, 90], 'amazing': [91, 98], 'monstrous': [99, 100]};
 const alienAbilityRanks = {'feeble': [1, 10], 'poor': [11, 20], 'typical': [21, 30], 'good': [31, 40], 'excellent': [41, 60],
 'remarkable': [61, 70], 'incredible': [71, 80], 'amazing': [81, 95], 'monstrous': [96, 100]};
 
