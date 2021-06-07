@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Chargen</title>
+    <link rel='stylesheet' href='app.css'>
+</head>
+<body>
+    <h1>Marvel Character Generator</h1>
+    <h2>About:</h2>
+    <p>This is a character generator for the Marvel Super Heroes TTRPG printed in the 80s and 90s.</p>
+    <h2>Instructions:</h2>
+    <p>Select an option from each row of buttons, then press "Go" to create a basic character. To save a created character's stats, press "Save".</p>
+    <h2>The Generator:</h2>
+    <button id='create-character'>Go</button>
+    <button id='save-character'>Submit</button>
+    <h3>Basic Attributes:</h3>
+    <form>
+        <label for='char-name'>Name:</label>
+        <input type='text' id='char-name' placeholder='Character'>
+        <div id='hero-type'>
+            <span class='form-label'>Hero Type:</span>
+            <label for='altered-human'>Altered Human:</label>
+            <input type='radio' name='hero-type' value='altered-human' id='altered-human'>
+            <label for='mutant'>Mutant:</label>
+            <input type='radio' name='hero-type' value='mutant' id='mutant'>
+            <label for='hi-tech'>Hi-Tech:</label>
+            <input type='radio' name='hero-type' value='hi-tech' id='hi-tech'>
+            <label for='robot'>Robot:</label>
+            <input type='radio' name='hero-type' value='robot' id='robot'>
+            <label for='alien'>Alien:</label>
+            <input type='radio' name='hero-type' value='alien' id='alien'>
+            <label for='generated-hero-type'>Generated<span id='shows-generated-hero-type'></span>:</label>
+            <input type='radio' name='hero-type' value='generated-hero-type' id='generated-hero-type'>
+        </div>  
+    </form>
+    <h3>Ability Scores:</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td>Fighting:</td>
+                <td id='fighting'></td>
+                <td>Reason:</td>
+                <td id='reason'></td>
+            </tr>
+            <tr>
+                <td>Agility:</td>
+                <td id='agility'></td>
+                <td>Intuition:</td>
+                <td id='intuition'></td>
+            </tr>
+            <tr>
+                <td>Strength:</td>
+                <td id='strength'></td>
+                <td>Psyche:</td>
+                <td id='psyche'></td>
+            </tr>
+            <tr>
+                <td>Endurance:</td>
+                <td id='endurance'></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src='basichelpers.js'></script>
+    <script src='basicconstants.js'></script>
+    <script src='marvelpc.js'></script>
+</body>
+</html>
