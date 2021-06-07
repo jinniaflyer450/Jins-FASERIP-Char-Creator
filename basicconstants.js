@@ -15,7 +15,7 @@ const hiTechAbilityRanks = {'feeble': [1, 5], 'poor': [6, 10], 'typical': [11, 4
 'remarkable': [96, 100]};
 const robotAbilityRanks = {'feeble': [1, 5], 'poor': [6, 10], 'typical': [11, 15], 'good': [16, 40], 'excellent': [41, 60],
 'remarkable': [51, 70], 'incredible': [71, 90], 'amazing': [91, 98], 'monstrous': [99, 100]};
-const alienAbilityRanks = {'feeble': [1, 10], 'poor': [11, 20], 'typical': [21, 30], 'good': [31, 40], 'excellent': [41, 50],
+const alienAbilityRanks = {'feeble': [1, 10], 'poor': [11, 20], 'typical': [21, 30], 'good': [31, 40], 'excellent': [41, 60],
 'remarkable': [61, 70], 'incredible': [71, 80], 'amazing': [81, 95], 'monstrous': [96, 100]};
 
 //An object containing the basic character types and the ability ranks they can achieve/the percentiles rolled to achieve them.
