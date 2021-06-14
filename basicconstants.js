@@ -25,3 +25,9 @@ const alienAbilityRanks = {'feeble': [1, 10], 'poor': [11, 20], 'typical': [21, 
 //An object containing the basic character types and the ability ranks they can achieve/the percentiles rolled to achieve them.
 const allAbilityRanks = {'altered-human': alteredHumanMutantAbilityRanks, 'mutant': alteredHumanMutantAbilityRanks, 
 'normal-human': regularHumanAbilityRanks, 'hi-tech': hiTechAbilityRanks, 'robot': robotAbilityRanks, 'alien': alienAbilityRanks}
+
+//Initial rank numbers for all achievable ranks.
+const initialRanksAndRankNumbers = {'feeble': 1, 'poor': 3, 'typical': 5, 'good': 8, 'excellent': 16, 'remarkable': 26, 'incredible': 36,
+'amazing': 46, 'monstrous': 63}
+
+const abilityModiferTable = new Map([[-1, [1, 15]], [0, [16, 50]], [1, [51, 70]], [2, [71, 85]], [3, [86, 95]], [4, [96, 100]]]);

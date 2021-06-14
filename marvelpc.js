@@ -58,5 +58,9 @@ document.querySelector('#create-character').addEventListener('click', function(e
     }
     else if(character[0] === 'alien'){
         character = new Alien(charName, 'alien', character[1]);
-    } 
+    }
+    document.querySelector('#max-health').innerText = character.maxHealth;
+    document.querySelector('#starting-karma').innerText = character.startingKarma;
+    document.querySelector('#resources').innerText = capitalizeString(character.resources);
+    document.querySelector('#popularity').innerText = character.popularity;
 })

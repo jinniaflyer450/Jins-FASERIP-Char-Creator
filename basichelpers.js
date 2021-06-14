@@ -80,3 +80,18 @@ function changeAbilityRank(characterAbilities, ability, numberRanks){
     basicChangeAbilityRank(characterAbilities, modifiedAbility, numberRanks);
     return modifiedAbility;
 }
+
+function determineStartingHealth(characterAbilities){
+    let fighting = initialRanksAndRankNumbers[characterAbilities['fighting']];
+    let agility = initialRanksAndRankNumbers[characterAbilities['agility']];
+    let strength = initialRanksAndRankNumbers[characterAbilities['strength']];
+    let endurance = initialRanksAndRankNumbers[characterAbilities['endurance']];
+    return (fighting + agility + strength + endurance);
+}
+
+function determineStartingKarma(characterAbilities){
+    let reason = initialRanksAndRankNumbers[characterAbilities['reason']];
+    let intuition = initialRanksAndRankNumbers[characterAbilities['intuition']];
+    let psyche = initialRanksAndRankNumbers[characterAbilities['psyche']];
+    return (reason + intuition + psyche);
+}
