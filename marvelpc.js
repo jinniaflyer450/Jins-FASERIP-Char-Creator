@@ -34,5 +34,29 @@ function createCharacter(){
 
 document.querySelector('#create-character').addEventListener('click', function(e){
     e.preventDefault();
+    if(document.querySelector('#fighting').innerText !== ''){
+        resetGenerator();
+    }
+    if(document.querySelector('#char-name').value !== ''){
+        charName = document.querySelector('#char-name').value;
+    }
+    else{
+        charName = 'Hero';
+    }
     character = createCharacter();
+    if(character[0] === 'altered-human'){
+        character = new AlteredHuman(charName, 'altered-human', character[1]);
+    }
+    else if(character[0] === 'mutant'){
+        character = new Mutant(charName, 'mutant', character[1]);
+    }
+    else if(character[0] === 'hi-tech'){
+        character = new HiTech(charName, 'hi-tech', character[1]);
+    }
+    else if(character[0] === 'robot'){
+        character = new Robot(charName, 'robot', character[1]);
+    }
+    else if(character[0] === 'alien'){
+        character = new Alien(charName, 'alien', character[1]);
+    } 
 })

@@ -53,3 +53,30 @@ function pickValueFromDom(domValues, generatedValue, staticValues){
     }
     return possibleStorageVariable;
 }
+
+
+//A function that modifies a set ability by a given number of ranks.
+function basicChangeAbilityRank(characterAbilities, ability, numberRanks){
+    let abilityIndex = basicAbilityRanks.indexOf(characterAbilities[ability]);
+    abilityIndex += numberRanks;
+    if(abilityIndex > (basicAbilityRanks.length - 1)){
+        abilityIndex = (basicAbilityRanks.length - 1);
+    }
+    else if(abilityIndex < 0){
+        abilityIndex = 0;
+    }
+    characterAbilities[ability] = basicAbilityRanks[abilityIndex];
+}
+
+//A function that modifies a set ability by a given number of ranks or chooses and modifies an ability by a given number of ranks.
+function changeAbilityRank(characterAbilities, ability, numberRanks){
+    let modifiedAbility = null;
+    if(ability !== 'random'){
+        modifiedAbility = ability;
+    }
+    else{
+        modifiedAbility = randomChoice(abilities);
+    }
+    basicChangeAbilityRank(characterAbilities, modifiedAbility, numberRanks);
+    return modifiedAbility;
+}

@@ -1,3 +1,7 @@
+//A variable to contain a character object and the character's name.
+let character = null;
+let charName = null;
+
 //An object of hero types and the percentiles rolled to achieve them.
 const heroTypes = {'altered-human': [1, 30], 'mutant': [31, 60], 'hi-tech': [61, 90], 'robot': [91, 95], 'alien': [96, 100]};
 
