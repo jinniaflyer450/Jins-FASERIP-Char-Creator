@@ -64,3 +64,39 @@ document.querySelector('#create-character').addEventListener('click', function(e
     document.querySelector('#resources').innerText = capitalizeString(character.resources);
     document.querySelector('#popularity').innerText = character.popularity;
 })
+
+function saveCharacter(){
+    let savedBuilds = document.querySelector('#saved-builds');
+    let characterWriteup = document.createElement('section');
+    let characterName = document.createElement('h3');
+    let characterSummary = document.createElement('h4');
+    let characterFaserip = document.createElement('p');
+    let characterSecondary = document.createElement('p');
+    
+    characterName.innerText = charName;
+    if(character.type === 'altered-human'){
+        characterSummary.innerText = 'Hero (Altered Human)';
+    }
+    else{
+        characterSummary.innerText = `Hero (${capitalizeString(character.type)})`;
+    }
+    for([ability, value] of Object.entries(character.abilities)){
+        characterFaserip.innerText += `${capitalizeString(ability)}: ${capitalizeString(value)}, `;
+    }
+    characterFaserip.length--;
+    characterSecondary.innerText += `Max Health: ${character.maxHealth}, `;
+    characterSecondary.innerText += `Starting Karma: ${character.startingKarma}, `;
+    characterSecondary.innerText += `Resources: ${capitalizeString(character.resources)}, `;
+    characterSecondary.innerText += `Popularity: ${character.popularity}`;
+    characterWriteup.append(characterName);
+    characterWriteup.append(characterSummary);
+    characterWriteup.append(characterFaserip);
+    characterWriteup.append(characterSecondary);
+    characterWriteup.setAttribute('class', 'saved-build');
+    savedBuilds.append(characterWriteup);
+}
+
+document.querySelector('#save-character').addEventListener('click', function(e){
+    e.preventDefault();
+    saveCharacter();
+})
