@@ -65,9 +65,9 @@ document.querySelector('#create-character').addEventListener('click', function(e
     document.querySelector('#resources').innerText = capitalizeString(character.resources);
     document.querySelector('#popularity').innerText = character.popularity;
     let powerList = document.querySelector('#powers');
-    for(power of character.powers){
+    for(let [power, powerRank] of Object.entries(character.powersWithRanks)){
         let characterPower = document.createElement('li');
-        characterPower.innerText = power;
+        characterPower.innerText = `${power} (${powerRank})`;
         powerList.append(characterPower);
     }
 })

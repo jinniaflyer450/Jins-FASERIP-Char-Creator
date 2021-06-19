@@ -54,6 +54,12 @@ class AlteredHuman extends Hero{
             this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
         }
         this.powers = selectPowers(this.powerTypesArray);
+        let powerRank = null;
+        this.powersWithRanks = {};
+        for(let power of this.powers){ 
+            powerRank = rollSelect(robotAbilityRanks);
+            this.powersWithRanks[power] = powerRank[0];
+        }
     }
 }
 
@@ -79,6 +85,12 @@ class Mutant extends Hero{
             this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
         }
         this.powers = selectPowers(this.powerTypesArray);
+        let powerRank = null;
+        this.powersWithRanks = {};
+        for(let power of this.powers){ 
+            powerRank = rollSelect(robotAbilityRanks);
+            this.powersWithRanks[power] = powerRank[0];
+        }
     }
 }
 
@@ -100,7 +112,12 @@ class HiTech extends Hero{
             this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
         }
         this.powers = selectPowers(this.powerTypesArray);
-
+        let powerRank = null;
+        this.powersWithRanks = {};
+        for(let power of this.powers){ 
+            powerRank = rollSelect(robotAbilityRanks);
+            this.powersWithRanks[power] = powerRank[0];
+        }
     }
 }
 
@@ -118,6 +135,12 @@ class Robot extends Hero{
             this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
         }
         this.powers = selectPowers(this.powerTypesArray);
+        let powerRank = null;
+        this.powersWithRanks = {};
+        for(let power of this.powers){ 
+            powerRank = rollSelect(robotAbilityRanks);
+            this.powersWithRanks[power] = powerRank[0];
+        }
     }
 }
 
@@ -137,5 +160,11 @@ class Alien extends Hero{
             this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
         }
         this.powers = selectPowers(this.powerTypesArray);
+        let powerRank = null;
+        this.powersWithRanks = {};
+        for(let power of this.powers){ 
+            powerRank = rollSelect(robotAbilityRanks);
+            this.powersWithRanks[power] = powerRank[0];
+        }
     }
 }
