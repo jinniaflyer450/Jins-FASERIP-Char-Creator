@@ -16,6 +16,7 @@ function resetGenerator(){
     for(ability in characterPrimaryAbilities){
         document.querySelector(`#${ability}`).innerText = '';
     }
+    document.querySelector('#powers').innerText = '';
 }
 
 //A function that creates a basic Marvel PC.
@@ -63,6 +64,12 @@ document.querySelector('#create-character').addEventListener('click', function(e
     document.querySelector('#starting-karma').innerText = character.startingKarma;
     document.querySelector('#resources').innerText = capitalizeString(character.resources);
     document.querySelector('#popularity').innerText = character.popularity;
+    let powerList = document.querySelector('#powers');
+    for(power of character.powers){
+        let characterPower = document.createElement('li');
+        characterPower.innerText = power;
+        powerList.append(characterPower);
+    }
 })
 
 function saveCharacter(){

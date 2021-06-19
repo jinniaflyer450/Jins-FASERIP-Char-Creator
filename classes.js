@@ -26,6 +26,17 @@ class Hero{
         }
         this.resources = basicAbilityRanks[resourcesColumnRank];
     }
+
+    determineResourceNum(table){
+        let percentileNum = rollPercentile();
+        let resourceNums = null;
+        table.forEach(function(percentileRange, resourceNumRange){
+            if(percentileNum >= percentileRange[0] && percentileNum <= percentileRange[1]){
+                resourceNums = resourceNumRange;
+            }
+        })
+        return resourceNums;
+    }
 }
 
 class AlteredHuman extends Hero{
@@ -35,6 +46,14 @@ class AlteredHuman extends Hero{
         this.increasedAbilityRecord = `Increased ${capitalizeString(increasedAbility)}.`
         this.determineHealthAndKarma();
         this.determineResources();
+        this.startingAndMaxPowers = this.determineResourceNum(powerNumTable);
+        this.startingAndMaxTalents = this.determineResourceNum(talentNumTable);
+        this.startingAndMaxContacts = this.determineResourceNum(contactNumTable);
+        this.powerTypesArray = [];
+        for(let index = 0; index < this.startingAndMaxPowers[0]; index++){
+            this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
+        }
+        this.powers = selectPowers(this.powerTypesArray);
     }
 }
 
@@ -49,6 +68,17 @@ class Mutant extends Hero{
         this.increasedAbilityRecord = `Increased ${capitalizeString(increasedAbility)}.`
         this.determineHealthAndKarma();
         this.determineResources();
+        this.startingAndMaxPowers = this.determineResourceNum(powerNumTable);
+        if(this.startingAndMaxPowers[0] < this.startingAndMaxPowers[1]){
+            this.startingAndMaxPowers[0]++
+        }
+        this.startingAndMaxTalents = this.determineResourceNum(talentNumTable);
+        this.startingAndMaxContacts = this.determineResourceNum(contactNumTable);
+        this.powerTypesArray = [];
+        for(let index = 0; index < this.startingAndMaxPowers[0]; index++){
+            this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
+        }
+        this.powers = selectPowers(this.powerTypesArray);
     }
 }
 
@@ -59,6 +89,18 @@ class HiTech extends Hero{
         this.increasedAbilityRecord = `Increased ${capitalizeString(increasedAbility)} by 2.`
         this.determineHealthAndKarma();
         this.determineResources();
+        this.startingAndMaxPowers = this.determineResourceNum(powerNumTable);
+        this.startingAndMaxTalents = this.determineResourceNum(talentNumTable);
+        this.startingAndMaxContacts = this.determineResourceNum(contactNumTable);
+        if(this.startingAndMaxContacts[0] === 0){
+            this.startingAndMaxContacts[0]++
+        }
+        this.powerTypesArray = [];
+        for(let index = 0; index < this.startingAndMaxPowers[0]; index++){
+            this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
+        }
+        this.powers = selectPowers(this.powerTypesArray);
+
     }
 }
 
@@ -68,6 +110,14 @@ class Robot extends Hero{
         this.popularity = 0;
         this.determineHealthAndKarma();
         this.determineResources();
+        this.startingAndMaxPowers = this.determineResourceNum(powerNumTable);
+        this.startingAndMaxTalents = this.determineResourceNum(talentNumTable);
+        this.startingAndMaxContacts = this.determineResourceNum(contactNumTable);
+        this.powerTypesArray = [];
+        for(let index = 0; index < this.startingAndMaxPowers[0]; index++){
+            this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
+        }
+        this.powers = selectPowers(this.powerTypesArray);
     }
 }
 
@@ -76,5 +126,16 @@ class Alien extends Hero{
         super(name, type, primaryAbilities);
         this.determineHealthAndKarma();
         this.determineResources();
+        this.startingAndMaxPowers = this.determineResourceNum(powerNumTable);
+        if(this.startingAndMaxPowers[0] < 2){
+            this.startingAndMaxPowers[0]--
+        }
+        this.startingAndMaxTalents = this.determineResourceNum(talentNumTable);
+        this.startingAndMaxContacts = randomChoice([0, 1]);
+        this.powerTypesArray = [];
+        for(let index = 0; index < this.startingAndMaxPowers[0]; index++){
+            this.powerTypesArray.push(rollSelect(powerCategoriesTable)[0]);    
+        }
+        this.powers = selectPowers(this.powerTypesArray);
     }
 }

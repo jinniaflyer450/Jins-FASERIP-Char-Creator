@@ -6,3 +6,9 @@
 div{
     margin:5px 0px;
 }
+
+tr:nth-of-type(2n){
+    background-color: rgb(220, 247, 220);
+}
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child Found help with nth child here.*/

@@ -8,6 +8,11 @@ function rollPercentile(){
     return Math.ceil(Math.random() * 100);
 }
 
+//A function that rolls a ten-sided die.
+function rollTen(){
+    return Math.ceil(Math.random()*10);
+}
+
 /*The function that capitalizes/title-cases a string.*/
 function capitalizeString(string){
     let capitalizedString = '';
@@ -36,6 +41,62 @@ function rollSelect(staticValues){
         }
     }
     return possibleStorageVariable;
+}
+
+
+//A function that rolls a ten-sided die, then finds the result in a power list and returns the associated power.
+function rollSelectPower(powerList){
+    let tenSided = rollTen();
+    let possibleStorageVariable = null;
+    for([key, value] of Object.entries(powerList)){
+        if(value.includes(tenSided)){
+            possibleStorageVariable = key;
+        }
+    }
+    return possibleStorageVariable;
+}
+
+function twoPowerSlotSituation(problemPowerList, power, rolledPowerIndex, rolledPowerTypes, possiblePowerList){
+    if(problemPowerList.includes(power) && rolledPowerIndex < rolledPowerTypes.length - 1){
+        rolledPowerTypes.pop();
+        if(problemPowerList === bonusPowers){
+            return [power, bonusPowers[power]];
+        }
+    }
+    else if(problemPowerList.includes(power)){
+        while(problemPowerList.includes(power)){
+            power = rollSelectPower(possiblePowerList);
+        }
+    }
+    return [power, null];
+}
+
+function duplicatePowerSlotSituation(problemPowerList, power, possiblePowerList){
+    if(problemPowerList.includes(power)){
+        while(problemPowerList.includes(power)){
+            power = rollSelectPower(possiblePowerList);
+        }
+    }
+    return power;
+}
+
+function selectPowers(rolledPowerTypes){
+    let possiblePowerList = null;
+    let power = null;
+    let powers = [];
+    for(let rolledPowerIndex = 0; rolledPowerIndex < rolledPowerTypes.length; rolledPowerIndex++){
+        possiblePowerList = powerLists[rolledPowerTypes[rolledPowerIndex]];
+        power = rollSelectPower(possiblePowerList);
+        power = duplicatePowerSlotSituation(powers, power, possiblePowerList);
+        power = twoPowerSlotSituation(doubleSlotPowers, power, rolledPowerIndex, rolledPowerTypes, possiblePowerList)[0];
+        let powerAndBonusPower = twoPowerSlotSituation(Object.keys(bonusPowers), power, rolledPowerIndex, rolledPowerTypes, possiblePowerList);
+        power = powerAndBonusPower[0]
+        powers.push(power);
+        if(powerAndBonusPower[1]){
+            powers.push(powerAndBonusPower[1]);
+        }
+    }
+    return powers;
 }
 
 
