@@ -73,7 +73,7 @@ const bodyControlPowers = {'Growth': [1], 'Shrinking': [2], 'Invisibility': [3],
 'Body Transformation': [6], 'Animal Transformation--Self': [7], 'Raise Lowest Ability': [8], 'Blending': [9], 'Alter Ego': [10]};
 
 //An object with distance attack powers and the roll result to get them.
-const distanceAttackPowers = {'Projectile Missle': [1], 'Ensnaring Missle': [2], 'Ice Generation': [3], 'Fire Generation': [4],
+const distanceAttackPowers = {'Projectile Missle': [1], 'Ensnaring Missile': [2], 'Ice Generation': [3], 'Fire Generation': [4],
 'Energy Generation': [5], 'Sound Generation': [6], 'Stunning Generation': [7], 'Corrosive Missle': [8], 'Slashing Missle': [9],
 'Darkforce Generation': [10]};
 
